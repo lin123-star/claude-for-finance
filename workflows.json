@@ -1,0 +1,110 @@
+{
+  "version": "1.0",
+  "description": "金融分析 Agentic 系统工作流定义。本文件供 master-orchestrator 参考，用于理解标准流程。",
+  "workflows": {
+    "complete-research": {
+      "name": "完整投研分析",
+      "description": "从数据收集到报告输出的完整流程，包含竞争、财务、估值三维度分析和质量检查",
+      "trigger": "/analyze-company [公司名]",
+      "estimated_time": "5-10 分钟",
+      "steps": [
+        {
+          "step": 1,
+          "agent": "financial-data-fetcher",
+          "task": "获取最新财务数据、行业数据，写入 data/ 目录",
+          "output": "data/[公司名]-financial-data-[日期].md"
+        },
+        {
+          "step": 2,
+          "parallel": true,
+          "agents": [
+            {
+              "agent": "competitor-analyst",
+              "task": "执行竞争格局分析，加载 skills/competitive-analysis/SKILL.md",
+              "output": "outputs/[公司名]-竞争分析-[日期].md"
+            },
+            {
+              "agent": "financial-analyst",
+              "task": "执行三表财务分析，加载 skills/financial-analysis/SKILL.md",
+              "output": "outputs/[公司名]-财务分析-[日期].md"
+            },
+            {
+              "agent": "valuation-expert",
+              "task": "执行 DCF + 相对估值，加载 skills/dcf-model/SKILL.md",
+              "output": "outputs/[公司名]-估值模型-[日期].md"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "agent": "quality-checker",
+          "task": "检查三份报告的逻辑一致性和数据完整性",
+          "on_fail": "返回问题清单，要求对应 Agent 修正"
+        },
+        {
+          "step": 4,
+          "agent": "research-report-summarizer",
+          "task": "整合三份报告，生成最终投研报告",
+          "output": "outputs/[公司名]-研究报告-[日期].md"
+        }
+      ]
+    },
+    "quick-analysis": {
+      "name": "快速分析",
+      "description": "仅做竞争和财务分析，不进行深度估值建模，适合快速了解一家公司",
+      "trigger": "手动调用，或在询问深度时用户选择"快速"",
+      "estimated_time": "2-3 分钟",
+      "steps": [
+        {
+          "step": 1,
+          "agent": "financial-data-fetcher",
+          "task": "获取基础财务数据"
+        },
+        {
+          "step": 2,
+          "parallel": true,
+          "agents": [
+            {
+              "agent": "competitor-analyst",
+              "task": "竞争格局快速分析"
+            },
+            {
+              "agent": "financial-analyst",
+              "task": "财务健康度快速评估"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "agent": "research-report-summarizer",
+          "task": "输出简版报告（不含估值章节）"
+        }
+      ]
+    },
+    "valuation-only": {
+      "name": "单独估值",
+      "description": "在已有财务分析的基础上，单独执行估值建模",
+      "trigger": "手动调用 valuation-expert",
+      "steps": [
+        {
+          "step": 1,
+          "agent": "valuation-expert",
+          "task": "读取已有财务数据，执行 DCF + 相对估值"
+        }
+      ]
+    }
+  },
+  "agents_map": {
+    "master-orchestrator": ".claude/agents/master-orchestrator.md",
+    "competitor-analyst": ".claude/agents/competitor-analyst.md",
+    "financial-data-fetcher": ".claude/agents/financial-data-fetcher.md",
+    "valuation-expert": ".claude/agents/valuation-expert.md",
+    "quality-checker": ".claude/agents/quality-checker.md",
+    "research-report-summarizer": ".claude/agents/research-report-summarizer.md"
+  },
+  "skills_map": {
+    "competitive-analysis": ".claude/skills/competitive-analysis/SKILL.md",
+    "dcf-model": ".claude/skills/dcf-model/SKILL.md",
+    "financial-analysis": ".claude/skills/financial-analysis/SKILL.md"
+  }
+}

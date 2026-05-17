@@ -1,0 +1,135 @@
+{
+  "_readme": "假设库索引文件。每家公司一条记录，指向各自的假设追踪 Markdown 文件。由 /extract-assumptions 命令自动填充，研究员也可手动维护。",
+  "version": "1.0",
+  "last_updated": "2026-05-17",
+  "companies": [
+    {
+      "name": "胜宏科技",
+      "code": "300476.SZ",
+      "sector": "PCB",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/胜宏科技_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "金风科技",
+      "code": "002202.SZ",
+      "sector": "新能源/风电",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/金风科技_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "比亚迪",
+      "code": "002594.SZ",
+      "sector": "新能源汽车",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/比亚迪_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "东山精密",
+      "code": "002384.SZ",
+      "sector": "消费电子/PCB",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/东山精密_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "华工科技",
+      "code": "000988.SZ",
+      "sector": "激光/光通信",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/华工科技_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "鸣志电器",
+      "code": "603728.SH",
+      "sector": "工控/步进电机",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/鸣志电器_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "信维通信",
+      "code": "300136.SZ",
+      "sector": "消费电子/天线",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/信维通信_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "沪电股份",
+      "code": "002463.SZ",
+      "sector": "PCB",
+      "report_date": "2026-05-10",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/沪电股份_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "拓普集团",
+      "code": "601689.SH",
+      "sector": "汽车零部件",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/拓普集团_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "旭升集团",
+      "code": "603305.SH",
+      "sector": "汽车零部件/铝压铸",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/旭升集团_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "巨星农牧",
+      "code": "603477.SH",
+      "sector": "农业/生猪",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/巨星农牧_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "光迅科技",
+      "code": "002281.SZ",
+      "sector": "光通信器件",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/光迅科技_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "中际旭创",
+      "code": "300308.SZ",
+      "sector": "光模块",
+      "report_date": "2026-05-08",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/中际旭创_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "寒武纪",
+      "code": "688256.SH",
+      "sector": "AI芯片",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/寒武纪_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "中文在线",
+      "code": "300364.SZ",
+      "sector": "数字内容/AI",
+      "report_date": "2026-05-09",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/中文在线_假设追踪.md",
+      "extracted": true
+    },
+    {
+      "name": "泰晶科技",
+      "code": "603738.SH",
+      "sector": "晶振/频率器件",
+      "report_date": "2026-05-16",
+      "assumptions_file": "d:/claude-for-finance/outputs/假设库/泰晶科技_假设追踪.md",
+      "extracted": true
+    }
+  ]
+}

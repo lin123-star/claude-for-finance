@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>投研监测仪表板 2026-05-17</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:#f0f2f5; color:#333; padding:24px; }
+    .container { max-width:1200px; margin:0 auto; }
+    h1 { font-size:24px; margin-bottom:8px; }
+    .subtitle { color:#666; font-size:14px; margin-bottom:24px; }
+    .cards { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+    .card { background:white; border-radius:10px; padding:20px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+    .card .num { font-size:36px; font-weight:700; }
+    .card .lbl { font-size:14px; color:#666; margin-top:4px; }
+    .card.warn { border-left:4px solid #ff4444; }
+    .card.caution { border-left:4px solid #ff8c00; }
+    .card.ok { border-left:4px solid #00aa44; }
+    .card.muted { border-left:4px solid #888; }
+    section { background:white; border-radius:10px; padding:20px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+    h2 { font-size:18px; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid #eee; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { padding:10px 12px; text-align:left; border-bottom:1px solid #eee; font-size:14px; }
+    th { background:#f8f9fa; font-weight:600; color:#555; }
+    tr:hover td { background:#fafafa; }
+    code { background:#f0f0f0; padding:2px 6px; border-radius:4px; font-size:13px; }
+    .alert-empty { color:#888; padding:20px; text-align:center; }
+    .todo-list { list-style:none; padding:0; }
+    .todo-list li { padding:8px 0; border-bottom:1px solid #f0f0f0; font-size:14px; }
+    .todo-list li:last-child { border:none; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>投研监测仪表板</h1>
+  <div class="subtitle">2026-05-17 | 数据来源：watchlist.json + 假设库</div>
+  <div class="cards">
+    <div class="card warn"><div class="num">2</div><div class="lbl">触发告警</div></div>
+    <div class="card caution"><div class="num">3</div><div class="lbl">需关注</div></div>
+    <div class="card ok"><div class="num">0</div><div class="lbl">正常</div></div>
+    <div class="card muted"><div class="num">0</div><div class="lbl">未检查</div></div>
+  </div>
+  <section>
+    <h2>持仓明细</h2>
+    <table>
+      <tr><th>公司</th><th>行业</th><th>告警级别</th><th>上次检查</th><th>关键假设</th></tr>
+        <tr>
+    <td>金风科技</td>
+    <td>新能源/风电</td>
+    <td style="color:#ff4444; background:#fff0f0; font-weight:600">🚨 触发告警</td>
+    <td>2026-05-17</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>比亚迪</td>
+    <td>新能源汽车</td>
+    <td style="color:#ff8c00; background:#fff9f0; font-weight:600">⚠️ 需关注</td>
+    <td>2026-05-17</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>东山精密</td>
+    <td>消费电子/PCB</td>
+    <td style="color:#ff8c00; background:#fff9f0; font-weight:600">⚠️ 需关注</td>
+    <td>2026-05-17</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>胜宏科技</td>
+    <td>PCB</td>
+    <td style="color:#ff8c00; background:#fff9f0; font-weight:600">⚠️ 需关注</td>
+    <td>2026-05-17</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>信维通信</td>
+    <td>消费电子/天线</td>
+    <td style="color:#ff4444; background:#fff0f0; font-weight:600">🚨 触发告警</td>
+    <td>2026-05-17</td>
+    <td>3</td>
+  </tr>
+
+    </table>
+  </section>
+  <section>
+    <h2>告警详情</h2>
+    
+  <div style="border:1px solid #ff4444; border-radius:8px; padding:12px; margin:12px 0; background:#fff0f0;">
+    <h3 style="margin:0 0 8px 0; color:#cc0000;">🚨 金风科技</h3>
+    <p style="margin:4px 0;"><strong>建议行动：</strong><code>/analyze-company 金风科技</code> 重新评估</p>
+  </div>
+
+  <div style="border:1px solid #ff4444; border-radius:8px; padding:12px; margin:12px 0; background:#fff0f0;">
+    <h3 style="margin:0 0 8px 0; color:#cc0000;">🚨 信维通信</h3>
+    <p style="margin:4px 0;"><strong>建议行动：</strong><code>/analyze-company 信维通信</code> 重新评估</p>
+  </div>
+
+  </section>
+  <section>
+    <h2>宏观背景摘要</h2>
+    <p style="font-size:14px; line-height:1.8;">中国弱复苏（GDP 5.0%, CPI 1.2%），PBOC 适度宽松，美联储观望模式，中美关税边际缓和。内需疲弱制约顺周期板块。</p>
+  </section>
+  <section>
+    <h2>待办提醒</h2>
+    <ul class="todo-list">
+      <li> 金风科技（触发告警）：建议 <code>/analyze-company 金风科技</code> 重新评估</li>
+      <li> 信维通信（触发告警）：建议 <code>/analyze-company 信维通信</code> 重新评估</li>
+      <li> 假设库 16 家公司中 11 家未加入 watchlist</li>
+    </ul>
+  </section>
+</div>
+</body>
+</html>

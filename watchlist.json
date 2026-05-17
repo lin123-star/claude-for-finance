@@ -1,0 +1,97 @@
+{
+  "_comment": "仓位监测清单。active=true 的公司会被 /monitor 批量扫描。alerted 字段由 monitor-agent 自动更新。",
+  "companies": [
+    {
+      "name": "金风科技",
+      "active": true,
+      "initial_report": "d:/claude-for-finance/outputs/金风科技/金风科技-研究报告-2026-05-09.md",
+      "sector": "新能源/风电",
+      "last_checked": "2026-05-17",
+      "alert_level": "alert",
+      "key_assumptions": [
+        "国内风电装机需求维持年增速 15%+",
+        "公司市场份额保持在 24% 以上",
+        "毛利率维持 20-22% 区间",
+        "海外收入占比持续提升至 20%+"
+      ],
+      "thresholds": {
+        "gross_margin_decline": "连续两季度下滑超 2pct",
+        "market_share_decline": "市场份额下滑超 3pct",
+        "order_growth_negative": "订单同比增速转负"
+      }
+    },
+    {
+      "name": "比亚迪",
+      "active": true,
+      "initial_report": "d:/claude-for-finance/outputs/比亚迪/比亚迪-研究报告-2026-05-10.md",
+      "sector": "新能源汽车",
+      "last_checked": "2026-05-17",
+      "alert_level": "warning",
+      "key_assumptions": [
+        "国内新能源车渗透率持续提升",
+        "公司乘用车市占率维持 35%+",
+        "电池技术领先优势维持",
+        "海外出口同比增速 30%+"
+      ],
+      "thresholds": {
+        "gross_margin_decline": "汽车业务毛利率下滑超 3pct",
+        "price_war_trigger": "主力车型官方降价超 8%",
+        "market_share_decline": "月度市占率连续 3 个月下滑"
+      }
+    },
+    {
+      "name": "东山精密",
+      "active": true,
+      "initial_report": "d:/claude-for-finance/outputs/东山精密/东山精密-研究报告-2026-05-10.md",
+      "sector": "消费电子/PCB",
+      "last_checked": "2026-05-17",
+      "alert_level": "warning",
+      "key_assumptions": [
+        "苹果供应链份额稳定或提升",
+        "FPC/SLP 产品毛利率 18%+",
+        "印度新厂产能爬坡顺利"
+      ],
+      "thresholds": {
+        "customer_concentration_risk": "单一客户收入占比超 60%",
+        "gross_margin_decline": "综合毛利率下滑超 3pct",
+        "capacity_utilization": "产能利用率低于 70%"
+      }
+    },
+    {
+      "name": "胜宏科技",
+      "active": true,
+      "initial_report": "d:/claude-for-finance/outputs/胜宏科技/胜宏科技-研究报告-2026-05-10.md",
+      "sector": "PCB",
+      "last_checked": "2026-05-17",
+      "alert_level": "warning",
+      "key_assumptions": [
+        "AI 服务器 PCB 订单持续放量",
+        "高速率产品毛利率维持在 25%+",
+        "产能扩张进度与订单节奏匹配"
+      ],
+      "thresholds": {
+        "gross_margin_decline": "毛利率连续两季度下滑超 2pct",
+        "order_slowdown": "AI 相关订单增速明显放缓（<20%）",
+        "capex_overrun": "资本支出超预算 30%+"
+      }
+    },
+    {
+      "name": "信维通信",
+      "active": true,
+      "initial_report": "d:/claude-for-finance/outputs/信维通信/信维通信-研究报告-2026-05-10.md",
+      "sector": "消费电子/天线",
+      "last_checked": "2026-05-17",
+      "alert_level": "alert",
+      "key_assumptions": [
+        "苹果天线模组份额稳定",
+        "卫星通信新品类放量",
+        "毛利率维持 28-32% 区间"
+      ],
+      "thresholds": {
+        "gross_margin_decline": "毛利率下滑超 3pct",
+        "apple_share_loss": "苹果订单收入同比下滑超 15%",
+        "new_business_delay": "卫星通信产品量产推迟超 2 个季度"
+      }
+    }
+  ]
+}

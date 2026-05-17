@@ -1,0 +1,19 @@
+{
+  "_readme": "投研案例库索引。每条案例记录一家公司的投资决策过程与结果，用于复盘与经验传承。由 /case-add 命令自动维护。",
+  "version": "1.0",
+  "last_updated": "2026-05-17",
+  "total": 1,
+  "cases": [
+    {
+      "name": "胜宏科技",
+      "code": "300476.SZ",
+      "sector": "PCB",
+      "rating": "强烈推荐",
+      "target_price": "400-520元",
+      "status": "🔄 持续跟踪",
+      "result": "待更新",
+      "report_date": "2026-05-10",
+      "case_file": "d:/claude-for-finance/outputs/案例库/胜宏科技_案例_2026-05-17.md"
+    }
+  ]
+}

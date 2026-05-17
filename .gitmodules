@@ -1,0 +1,3 @@
+[submodule "financial-services-plugins"]
+	path = financial-services-plugins
+	url = git@github.com:anthropics/financial-services-plugins.git
