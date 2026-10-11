@@ -21,15 +21,15 @@ argument-hint: "[公司名称，如：宁德时代、比亚迪]"
 把下面的顺序交给 `master-orchestrator`，并声明这是「洞察导向公司研究」：
 
 1. `source-curator` 写事实底账。身份对不上或标准清单大面积缺失时，先把缺口给用户，不往下编。
-2. `angle-miner` 写分析角度。若结论是「当前没有值得深挖的角度」，把角度文件交还用户并停止。
+2. `angle-miner` 写分析角度。这一步只交给 Claude Opus（Cursor 子任务模型 `claude-opus-5-5-high`）。若结论是「当前没有值得深挖的角度」，把角度文件交还用户并停止。
 3. 按角度文件的任务单调用专项代理。每个代理只回答任务单上的问题，必须引用事实 ID。
    - 财务问题 → `financial-analyst`
    - 竞争问题 → `competitor-analyst`
    - 估值问题 → `valuation-expert`（财务底稿未完成时不做）
    - 任务单出现周期或政策时 → `macro-researcher`
 4. `signal-integrator` 对专项结论做矛盾仲裁。
-5. `insight-engine` 写洞察文件。
-6. `quality-checker` 做洞察审计。未过的洞察退回 `insight-engine` 降级为观察，不直接放进报告结论。
+5. `insight-engine` 写洞察文件。这一步只交给 Claude Opus（Cursor 子任务模型 `claude-opus-5-5-high`）。
+6. `quality-checker` 做洞察审计。未过的洞察退回 Claude Opus 上的 `insight-engine` 降级为观察，不直接放进报告结论。
 7. `research-report-summarizer` 写最终报告。报告第一节必须是洞察，不是公司简介。买卖评级只在这一步出现，且每一条评级理由要引用洞察 ID。
 
 ## 产物

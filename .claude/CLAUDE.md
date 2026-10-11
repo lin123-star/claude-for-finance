@@ -77,4 +77,5 @@ python d:\claude-for-finance\outputs\[公司名]_三表模型_DCF估值.py
 - 完整投研分析 → `master-orchestrator` agent
 - 斜杠命令 → `/analyze-company [公司名]`
 - 洞察导向研究（事实底账 → 角度挖掘 → 洞察）→ `/company-research [公司名]`
+- 角度挖掘（`angle-miner`）与洞察（`insight-engine`）只使用 Claude Opus。Cursor 子任务模型为 `claude-opus-5-5-high`
 - 财报附注分析 → `/footnote-analysis [公司名] [NotebookLM URL]`

@@ -109,11 +109,11 @@ d:\claude-for-finance\outputs\[公司名]\[公司名]_三表模型_DCF估值.xls
 当命令是 `/company-research`，或用户要求「先挖角度再分析」「事实底账」「产生洞察」时，走这条流程，不走上面的默认七步。设计说明见 `docs/公司研究系统设计.md`。
 
 1. 调用 `source-curator`。先读 `.claude/knowledge/data-sources.md`。底账未写成，或公司身份对不上，不得进入下一步。
-2. 调用 `angle-miner`。若输出「当前没有值得深挖的角度」，把角度文件交给用户并停止。
+2. 调用 `angle-miner`，模型必须是 Claude Opus（Cursor 子任务用 `claude-opus-5-5-high`）。主会话不得自己写角度文件。若输出「当前没有值得深挖的角度」，把角度文件交给用户并停止。
 3. 只按角度文件的任务单委托专项代理。未出现在任务单上的代理不调用。`valuation-expert` 仍须等财务分析写完。`macro-researcher` 只有任务单点名周期或政策时才调用。
 4. 调用 `signal-integrator`。
-5. 调用 `insight-engine`。
-6. 调用 `quality-checker`，执行洞察审计。未过四道门的条目退回 `insight-engine` 降为观察。
+5. 调用 `insight-engine`，模型必须是 Claude Opus（Cursor 子任务用 `claude-opus-5-5-high`）。主会话不得自己写洞察文件。
+6. 调用 `quality-checker`，执行洞察审计。未过四道门的条目退回 Claude Opus 上的 `insight-engine` 降为观察。
 7. 调用 `research-report-summarizer`。报告第一节是洞察卡片。买卖评级只在报告里出现，每条理由引用洞察 ID。
 
 产物：
