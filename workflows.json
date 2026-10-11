@@ -52,7 +52,7 @@
     "quick-analysis": {
       "name": "快速分析",
       "description": "仅做竞争和财务分析，不进行深度估值建模，适合快速了解一家公司",
-      "trigger": "手动调用，或在询问深度时用户选择"快速"",
+      "trigger": "手动调用，或在询问深度时用户选择快速分析",
       "estimated_time": "2-3 分钟",
       "steps": [
         {
@@ -81,6 +81,54 @@
         }
       ]
     },
+    "company-research": {
+      "name": "洞察导向公司研究",
+      "description": "先建事实底账并挖掘分析角度，再只围绕入选角度做专项分析，产出可证伪洞察",
+      "trigger": "/company-research [公司名]",
+      "steps": [
+        {
+          "step": 1,
+          "agent": "source-curator",
+          "task": "按数据源等级采集并对账，写入事实底账。缺失不估算",
+          "output": "outputs/[公司名]/[公司名]-事实底账-[日期].md",
+          "read_first": ".claude/knowledge/data-sources.md"
+        },
+        {
+          "step": 2,
+          "agent": "angle-miner",
+          "task": "从盈利驱动和异常中生成互斥机制，打分后保留 3-5 个角度",
+          "output": "outputs/[公司名]/[公司名]-分析角度-[日期].md",
+          "on_no_angle": "停止，不调用后续专项分析"
+        },
+        {
+          "step": 3,
+          "agent": "task-list",
+          "task": "仅调用角度文件任务单上的代理：financial-analyst、competitor-analyst、valuation-expert、macro-researcher。每个代理只回答分给它的问题并引用事实 ID"
+        },
+        {
+          "step": 4,
+          "agent": "signal-integrator",
+          "task": "对专项结论做矛盾仲裁"
+        },
+        {
+          "step": 5,
+          "agent": "insight-engine",
+          "task": "用四道门生成洞察卡片、观察和估值假设修正建议",
+          "output": "outputs/[公司名]/[公司名]-洞察-[日期].md"
+        },
+        {
+          "step": 6,
+          "agent": "quality-checker",
+          "task": "洞察审计。未过门的条目退回 insight-engine 降为观察"
+        },
+        {
+          "step": 7,
+          "agent": "research-report-summarizer",
+          "task": "报告第一节写洞察。评级理由必须引用洞察 ID",
+          "output": "outputs/[公司名]/[公司名]-研究报告-[日期].md"
+        }
+      ]
+    },
     "valuation-only": {
       "name": "单独估值",
       "description": "在已有财务分析的基础上，单独执行估值建模",
@@ -98,6 +146,9 @@
     "master-orchestrator": ".claude/agents/master-orchestrator.md",
     "competitor-analyst": ".claude/agents/competitor-analyst.md",
     "financial-data-fetcher": ".claude/agents/financial-data-fetcher.md",
+    "source-curator": ".claude/agents/source-curator.md",
+    "angle-miner": ".claude/agents/angle-miner.md",
+    "insight-engine": ".claude/agents/insight-engine.md",
     "valuation-expert": ".claude/agents/valuation-expert.md",
     "quality-checker": ".claude/agents/quality-checker.md",
     "research-report-summarizer": ".claude/agents/research-report-summarizer.md"
